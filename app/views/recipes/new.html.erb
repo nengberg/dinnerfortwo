@@ -1,1 +1,8 @@
 <h1>Lägg till nytt recept</h1>
+<%= form_tag do %>
+<%= label_tag(:title, "Titel") %>
+<%= text_field_tag(:title) %>
+<%= label_tag(:image, "Bild") %>
+<%= text_field_tag(:image) %>
+<%= submit_tag("Lägg till") %>
+<% end %>
