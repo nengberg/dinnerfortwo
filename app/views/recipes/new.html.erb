@@ -1,8 +1,8 @@
 <h1>Lägg till nytt recept</h1>
 <%= form_for @recipe do |f| %>
-<%= f.label_tag(:title, "Titel") %>
-<%= f.text_field_tag(:title) %>
-<%= f.label_tag(:picture, "Bild") %>
-<%= f.file_field_tag(:picture) %>
-<%= f.submit_tag("Lägg till") %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :picture %>
+<%= f.file_field :picture %>
+<%= f.submit %>
 <% end %>
