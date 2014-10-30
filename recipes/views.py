@@ -11,7 +11,7 @@ def detail(request, recipe_id):
 		recipe = Recipe.objects.get(pk=recipe_id)
 	except Recipe.DoesNotExist:
 		raise Http404
-		return render(request, 'polls/detail.html', {'recipe': recipe})
+	return render(request, 'recipes/detail.html', {'recipe': recipe})
 
 def new(request):
 	return HttpResponse("Skapa nytt recept")
