@@ -38,12 +38,6 @@ a {
     margin-right: 10px;
 }
 
-.user {
-    position: relative;
-    right: 1.1%;
-    top: 0.8%;
-}
-
 .actions {  
     text-align: center;
 }
@@ -67,6 +61,38 @@ a {
     color: #FFF;
     line-height:28px;
     display: block;
+}
+
+.events {
+    margin-left: 10px;
+}
+
+.recipe {
+    background: #fff;
+    display: block;
+    width: 400px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+}
+
+.recipe img {
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    position: center;
+    margin-right: 25px;
+    margin-left: 10px;
+
+}
+
+.recipe h3 {
+    margin: 10px;
+}
+
+.recipe a {
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 div.homeicon {
