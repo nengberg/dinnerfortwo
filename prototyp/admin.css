@@ -20,9 +20,9 @@ a {
     margin-bottom: 10px;
 }
 
-.header h1 {
-    color:#FF6A39;
+.logo {
     float: left;
+    margin-left: 10px;
 }
 
 .header h1 a:link{
@@ -34,8 +34,8 @@ a {
 }
 
 .settings {
-    position: relative;
-    float: right;  
+    float: right;
+    margin-right: 10px;
 }
 
 .user {
@@ -57,6 +57,10 @@ a {
     display: inline-block;
     padding: 3px 5px;
     margin-bottom: 5px;
+}
+
+.actions a:hover {
+    background: #994022;
 }
 
 .actions span {
@@ -98,11 +102,24 @@ div.homeicon:before {
     right: -5px;
 }
 
+div.homeicon:hover {
+    border-color: transparent transparent #994022 transparent;
+}
+
+div.homeicon:hover:after {
+    border-left: 8px solid #994022;
+    border-right: 8px solid #994022;
+}
+
+div.homeicon:hover:before {
+    background-color: #994022;
+}
+
 div.crossicon {
     width: 25px;
     height: 4px;
     background: #FF6A39;
-    margin: 45px 10px 0;
+    margin: 45px 10px 0px 10px;
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
@@ -123,4 +140,8 @@ div.crossicon:after {
     -ms-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
+}
+
+div.crossicon:hover, div.crossicon:hover:after {
+    background: #994022;
 }
