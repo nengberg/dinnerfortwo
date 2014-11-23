@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Source Sans Pro", Verdana,Arial,sans-serif;
+    font-style:normal;
+    font-weight:300;
+    background: #f6f7f8;
+    position: relative;
+}
+    
+a {
+    text-decoration: none;
+}
+
+.header {
+    background: #FFF;
+    color: #FF6A39;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    color:#FF6A39;
+    float: left;
+}
+
+.header h1 a:link{
+    color:#FF6A39;
+}
+
+.container {
+    width: 100%;  
+}
+
+.settings {
+    position: relative;
+    float: right;  
+}
+
+.user {
+    position: relative;
+    right: 1.1%;
+    top: 0.8%;
+}
+
+.actions {  
+    text-align: center;
+}
+
+.actions a {
+    background: #FF6A39;
+    width: 130px;
+    height: 28px;
+    font-size: 16px;
+    border: none;
+    display: inline-block;
+    padding: 3px 5px;
+    margin-bottom: 5px;
+}
+
+.actions span {
+    color: #FFF;
+    line-height:28px;
+    display: block;
+}
+
+div.homeicon {
+    height: 0px;
+    width: 0px;
+    border-width: 16px;
+    border-style: solid;
+    border-color: transparent transparent #FF6A39 transparent;
+    position: absolute;
+
+    margin: 12px 0px 0px -50px;
+}
+
+div.homeicon:after {
+    content: '';
+    width: 5px;
+    height: 16px;
+    background-color: transparent;
+    position: absolute;
+    top: 16px;
+    right: -11px;
+    border-left: 8px solid #FF6A39;
+    border-right: 8px solid #FF6A39;
+}
+
+div.homeicon:before {
+    content: '';
+    width: 9px;
+    height: 6px;
+    background-color: #FF6A39;
+    position: absolute;
+    top: 16px;
+    right: -5px;
+}
+
+div.crossicon {
+    width: 25px;
+    height: 4px;
+    background: #FF6A39;
+    margin: 45px 10px 0;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+div.crossicon:after {
+    content: '';
+    width: 25px;
+    height: 4px;
+    background: #FF6A39;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
