@@ -1,16 +1,41 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
+body, button, input{
+    font-size: 20px;
     font-family: "Source Sans Pro", Verdana,Arial,sans-serif;
     font-style:normal;
     font-weight:300;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight:bold;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight:bold;
+    margin-bottom: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
     background: #f6f7f8;
     position: relative;
+    color: #FF6A39;
 }
     
 a {
     text-decoration: none;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+legend {
+    margin-bottom: 10px;
 }
 
 .header {
@@ -42,18 +67,64 @@ a {
     text-align: center;
 }
 
-.actions a {
+.actions a, button {
     background: #FF6A39;
-    width: 130px;
-    height: 28px;
-    font-size: 16px;
+    min-width: 120px;
+    min-height: 28px;
     border: none;
     display: inline-block;
     padding: 3px 5px;
     margin-bottom: 5px;
+    cursor: pointer;
+    font-size:18px;
 }
 
-.actions a:hover {
+input {
+    width:375px;
+    display:block;
+    height: 34px;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number],
+textarea, select {
+    border: 1px solid #ccc;
+    -webkit-transition: all 0.50s ease-in-out;
+    -moz-transition: all 0.50s ease-in-out;
+    -ms-transition: all 0.50s ease-in-out;
+    -o-transition: all 0.50s ease-in-out;
+    outline: none;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    border: 1px solid #FF6A39;
+}
+
+.form-row {
+    clear: both;
+    padding: 6px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-row label {
+    padding-right: 0.5em;
+    line-height: 2em;
+    font-size: 1em;
+    clear: both;
+    color: #333;
+}
+
+.form-row.field-title div {
+    display: inline-block;
+}
+
+.properties {
+    margin-bottom: 15px;
+}
+
+.actions a:hover, button:hover {
     background: #994022;
 }
 
@@ -61,14 +132,15 @@ a {
     color: #FFF;
     line-height:28px;
     display: block;
-}
+}   
 
-.events {
+.main {
     margin-left: 10px;
 }
 
 .recipe {
     background: #fff;
+    color: #000;
     display: block;
     width: 400px;
     overflow: hidden;
@@ -168,6 +240,24 @@ div.crossicon:after {
     transform: rotate(90deg);
 }
 
-div.crossicon:hover, div.crossicon:hover:after {
+div.crossicon:hover, div.crossicon:hover:after,
+div.plusicon:hover:after, div.plusicon:hover {
     background: #994022;
+}
+
+div.plusicon {
+    width: 24px;
+    height: 4px;
+    background: #FF6A39;
+    position: absolute;
+}
+
+div.plusicon:after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 24px;
+    background: #FF6A39;
+    left: 10px;
+    top: -10px;
 }

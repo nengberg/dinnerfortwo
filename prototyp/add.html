@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sv-SE" >
+<head>
+  <title>Webbplatsadministration | Django webbplatsadministration</title>
+  <link rel="stylesheet" type="text/css" href="admin.css" />
+  <meta charset="utf-8" />
+</head>
+
+<body class="dashboard">
+ <div class="header">
+  <div class="logo">
+    <h1>
+      <a href="/admin/">dinner for two (logotyp här)</a>
+    </h1>
+  </div>
+  <div class="settings">
+    <a href="/admin/password_change/"><div class="homeicon"></div></a>
+    <a href="/admin/logout/"><div class="crossicon"></div></a>
+  </div>
+</div> 
+<div class="container">
+  <form enctype="multipart/form-data" action="" method="post" id="recipe_form" novalidate="">
+    <div class="main">
+      <fieldset class="module aligned ">
+      <legend><h2>Lägg till nytt recept</h2></legend>
+        <div class="form-row field-title">
+          <div>
+            <input class="vTextField" id="id_title" maxlength="300" name="title" placeholder="Namn på recept" type="text">
+          </div> 
+        </div>
+      </fieldset>
+      <div class="properties" id="ingredient_set-group">
+        <h3>Ingredienser</h3>
+        <div class="inline-related dynamic-ingredient_set" id="ingredient_set-0">
+          <fieldset class="module aligned ">
+            <div class="form-row field-title">
+              <div>
+                <input class="vTextField" id="id_ingredient_set-0-title" maxlength="300" name="ingredient_set-0-title" placeholder="Mängd (t ex. 2dl)" type="text">
+              </div>
+              <div>
+                <input class="vTextField" id="id_ingredient_set-0-title" maxlength="300" placeholder="Ingrediens" name="ingredient_set-0-title" type="text">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="inline-related empty-form last-related" id="ingredient_set-empty">
+        <fieldset class="module aligned ">
+            <div class="form-row field-title">
+              <div>
+                <input class="vTextField" id="id_ingredient_set-0-title" maxlength="300" name="ingredient_set-0-title" placeholder="Mängd (t ex. 2dl)" type="text">
+              </div>
+              <div>
+                <input class="vTextField" id="id_ingredient_set-0-title" maxlength="300" placeholder="Ingrediens" name="ingredient_set-0-title" type="text">
+              </div>
+            </div>
+          </fieldset>
+      </div>
+      <a href="#"><div class="plusicon"></div></a>
+    </div>
+    <div class="actions">
+      <button type="submit" name="_save"><span>Spara</span></button>
+      <button type="submit" name="_addanother"><span>Spara och lägg till ny</span></button>
+    </div>
+  </div>
+</form>
+</div>
+<br class="clear">
+</div>
