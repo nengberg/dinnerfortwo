@@ -26,6 +26,15 @@ body {
     
 a {
     text-decoration: none;
+    color: #FF6A39;
+}
+
+a:hover {
+    color: #994022;
+}
+
+a:visited { 
+    color: #FF6A39;
 }
 
 fieldset {
@@ -97,6 +106,10 @@ textarea, select {
 
 input[type=text]:focus, input[type=password]:focus {
     border: 1px solid #FF6A39;
+}
+
+input.image-select {
+  margin-top: 10px;
 }
 
 .form-row {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="sv-SE" >
 <head>
-  <title>Webbplatsadministration | Django webbplatsadministration</title>
+  <title>Dinner for two - Lägg till recept</title>
   <link rel="stylesheet" type="text/css" href="admin.css" />
   <meta charset="utf-8" />
 </head>
@@ -10,7 +10,7 @@
  <div class="header">
   <div class="logo">
     <h1>
-      <a href="/admin/">dinner for two (logotyp här)</a>
+      <a href="admin.html">dinner for two (logotyp här)</a>
     </h1>
   </div>
   <div class="settings">
@@ -22,10 +22,19 @@
   <form enctype="multipart/form-data" action="" method="post" id="recipe_form" novalidate="">
     <div class="main">
       <fieldset class="module aligned ">
-      <legend><h2>Lägg till nytt recept</h2></legend>
+      <legend>
+        <h2>Lägg till nytt recept</h2>
+      </legend>
         <div class="form-row field-title">
           <div>
             <input class="vTextField" id="id_title" maxlength="300" name="title" placeholder="Namn på recept" type="text">
+          </div> 
+        </div>
+      </fieldset>
+      <fieldset class="module aligned ">
+        <div class="form-row field-title">
+          <div>
+             <input type="file" class="image-select">
           </div> 
         </div>
       </fieldset>
@@ -65,5 +74,4 @@
   </div>
 </form>
 </div>
-<br class="clear">
 </div>
