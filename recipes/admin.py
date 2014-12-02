@@ -6,11 +6,8 @@ class IngredientInline(admin.StackedInline):
 	model = Ingredient
 	extra = 1
 
-class RecipeAdmin(admin.ModelAdmin):
+class RecipeAdmin(SummernoteModelAdmin):
 	inlines = [IngredientInline]
-		
-class SomeModelAdmin(SummernoteModelAdmin):
-	pass
 
 
 admin.site.register(Recipe, RecipeAdmin)

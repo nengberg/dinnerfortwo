@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 from multiselectfield import MultiSelectField
 
 CATEGORY_CHOICES = (
@@ -18,6 +19,12 @@ class Recipe(models.Model):
 
 class Ingredient(models.Model):
 	recipe = models.ForeignKey(Recipe)
-	title = models.CharField(max_length=300)
+	quantity = models.CharField(max_length=300)
+	name = models.CharField(max_length=300,default='')
 	def __str__(self):
 		return 'Ingrediens'
+
+class RecipeForm(ModelForm):
+    class Meta:
+        model = Recipe
+        fields = ['title', 'categories', 'description']
