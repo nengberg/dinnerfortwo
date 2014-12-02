@@ -13,6 +13,7 @@ CATEGORY_CHOICES = (
 class Recipe(models.Model):
 	title = models.CharField(max_length=300)
 	categories = MultiSelectField(choices=CATEGORY_CHOICES, default=1)
+	image = models.ImageField(upload_to='pictures/', null=True)
 	description = models.TextField(default='')
 	def __str__(self):
 		return 'Namn'
