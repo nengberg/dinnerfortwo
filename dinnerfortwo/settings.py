@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
 	'recipes',
+	'categories',
+	'categories.editor',
 	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
