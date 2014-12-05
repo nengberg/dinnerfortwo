@@ -1,7 +1,5 @@
-{% extends "admin/base_site.html" %}
+{% extends "admin/base.html" %}
 {% load i18n admin_static %}
-
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
 
 {% block coltype %}colMS{% endblock %}
 
@@ -10,48 +8,92 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
-<div id="content-main">
-
-{% if app_list %}
-        <div class="app-recipe">
-            <a href="/admin/recipes/recipe/"><span>Recept</span></a>
-            <a href="/admin/recipes/recipe/add/" class="addlink"><span>Lägg till nytt recept</span></a>
-            <a href="/admin/recipes/recipe/" class="changelink"><span>Ändra ett recept</span></a>
-        </div>
-{% else %}
-    <p>{% trans "You don't have permission to edit anything." %}</p>
-{% endif %}
-</div>
+<div class="actions">
+        <a href="/admin/recipes/recipe/"><span>Visa recept</span></a>
+        <a href="/admin/recipes/recipe/add" class="addlink"><span>Lägg till nytt recept</span></a> 
+    </div>
 {% endblock %}
 
 {% block sidebar %}
-<div id="content-related">
-    <div class="module" id="recent-actions-module">
-        <h2>{% trans 'Recent Actions' %}</h2>
-        <h3>{% trans 'My Actions' %}</h3>
-            {% load log %}
-            {% get_admin_log 10 as admin_log for_user user %}
-            {% if not admin_log %}
-            <p>{% trans 'None available' %}</p>
+<div class="main">
+    <h3>Senaste tillagda recept</h3>
+        {% load log %}
+        {% get_admin_log 10 as admin_log for_user user %}
+        {% if not admin_log %}
+        <p>{% trans 'None available' %}</p>
+        {% else %}
+        <ul class="actionlist">
+        {% for entry in admin_log %}
+        <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
+            {% if entry.is_deletion or not entry.get_admin_url %}
+                {{ entry.object_repr }}
             {% else %}
-            <ul class="actionlist">
-            {% for entry in admin_log %}
-            <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
-                {% if entry.is_deletion or not entry.get_admin_url %}
-                    {{ entry.object_repr }}
-                {% else %}
-                    <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
-                {% endif %}
-                <br/>
-                {% if entry.content_type %}
-                    <span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>
-                {% else %}
-                    <span class="mini quiet">{% trans 'Unknown content' %}</span>
-                {% endif %}
-            </li>
-            {% endfor %}
-            </ul>
+                <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
             {% endif %}
-    </div>
+            <br/>
+            {% if entry.content_type %}
+                <span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>
+            {% else %}
+                <span class="mini quiet">{% trans 'Unknown content' %}</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
 </div>
 {% endblock %}
+
+<!DOCTYPE html>
+<html lang="sv-SE" >
+<head>
+    <title>Dinner for two - Admin</title>
+    <link rel="stylesheet" type="text/css" href="admin.css" />
+    <meta charset="utf-8" />
+</head>
+
+<body class="dashboard">
+    <div class="header">
+        <div class="logo">
+            <h1>
+                <a href="/admin/">dinner for two (logotyp här)</a>
+            </h1>
+        </div>
+        <div class="settings">
+            <a href="/admin/password_change/"><div class="homeicon"></div></a>
+            <a href="/admin/logout/"><div class="crossicon"></div></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="actions">
+            <a href="/admin/recipes/recipe/"><span>Visa recept</span></a>
+            <a href="add.html" class="addlink"><span>Lägg till nytt recept</span></a> 
+        </div>      
+        <div class="main">
+            <h2>Senaste tillagda recept</h2>
+             <div class="recipe">
+                 <h3>Pizza med skaldjur</h3>
+                 <ul>
+                    <li>4dl vetemjöl</li>
+                    <li>2dl vatten</li>
+                    <li>2msk olja</li>
+                    <li>2tsk salt</li>
+                 </ul>
+                  <a href="#">Se hela receptet</a>
+             </div>
+             <div class="recipe">
+                 <h3>Pasta vongole</h3>
+                 <img src="img/vongole.jpg" />
+                 <ul>
+                    <li>500gr pasta av valfri sort</li>
+                    <li>200gr musslor</li>
+                    <li>2msk olivolja</li>
+                    <li>2tsk salt</li>
+                    <li>svarpeppar</li>
+                    <li>2dl vitt vin</li>
+                 </ul>
+                 <a href="#">Se hela receptet</a>
+             </div>
+        </div>
+    </div>
+</body>
+</html>

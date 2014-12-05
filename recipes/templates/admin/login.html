@@ -1,15 +1,12 @@
-{% extends "admin/base.html" %}
 {% load i18n admin_static %}
-
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />{% endblock %}
-
-{% block bodyclass %}{{ block.super }} login{% endblock %}
-
-{% block nav-global %}{% endblock %}
-
-{% block content_title %}{% endblock %}
-
-{% block breadcrumbs %}{% endblock %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>Dinner for two - Logga in</title>
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/admin.css" %}{% endblock %}" /> 
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />
+</head>
+<body class="login">
 
 {% block content %}
 {% if form.errors and not form.non_field_errors %}
@@ -26,7 +23,7 @@
 {% endfor %}
 {% endif %}
 
-<div id="content-main">
+<div id="container">
 <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
   <div class="form-row">
     {{ form.username.errors }}
@@ -44,9 +41,11 @@
   </div>
   {% endif %}
   <div class="submit-row">
-    <label>&nbsp;</label><input type="submit" value="{% trans 'Log in' %}" />
+    <label></label><button type="submit" >{% trans 'Log in' %}</button>
   </div>
 </form>
+</body>
+</html>
 
 <script type="text/javascript">
 document.getElementById('id_username').focus()
