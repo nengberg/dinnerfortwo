@@ -8,7 +8,7 @@
 </script>
 <script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
 {% block extrahead %}{% endblock %}
-{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+<meta name="robots" content="NONE,NOARCHIVE" />
 </head>
 {% load i18n %}
 
@@ -24,14 +24,6 @@
             <a href="/admin/logout/"><div class="crossicon"></div></a>
         </div>
     </div>
- <!--    {% block messages %}
-        {% if messages %}
-        <ul class="messagelist">{% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
-        {% endfor %}</ul>
-        {% endif %}
-    {% endblock messages %}
- -->
     <div id="content" class="{% block coltype %}colM{% endblock %}">
         {% block content %}
         {% block object-tools %}{% endblock %}
