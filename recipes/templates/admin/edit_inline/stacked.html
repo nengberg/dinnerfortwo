@@ -1,0 +1,46 @@
+{% load i18n admin_static %}
+<div class="properties" id="{{ inline_admin_formset.formset.prefix }}-group">
+  <h3>Ingredienser</h3>
+{{ inline_admin_formset.formset.management_form }}
+{{ inline_admin_formset.formset.non_form_errors }}
+{% for inline_admin_form in inline_admin_formset %}
+  <div class="inline-related{% if inline_admin_form.original or inline_admin_form.show_url %} has_original{% endif %}{% if forloop.last %} empty-form last-related{% endif %}" id="{{ inline_admin_formset.formset.prefix }}-{% if not forloop.last %}{{ forloop.counter0 }}{% else %}empty{% endif %}">
+    {% if inline_admin_form.form.non_field_errors %}
+      {{ inline_admin_form.form.non_field_errors }}
+    {% endif %}
+  {% for fieldset in inline_admin_form %}
+    <fieldset class="module aligned {{ fieldset.classes }}">
+    {% for line in fieldset %}
+        <div class="form-row{% if line.fields|length_is:'1' and line.errors %} errors{% endif %}{% if not line.has_visible_field %} hidden{% endif %}{% for field in line %}{% if field.field.name %} field-{{ field.field.name }}{% endif %}{% endfor %}">
+            {% if line.fields|length_is:'1' %}{{ line.errors }}{% endif %}
+            {% for field in line %}
+            <div{% if not line.fields|length_is:'1' %} class="field-box{% if field.field.name %} field-{{ field.field.name }}{% endif %}{% if not field.is_readonly and field.errors %} errors{% endif %}{% if field.field.is_hidden %} hidden{% endif %}"{% elif field.is_checkbox %} class="checkbox-row"{% endif %}>
+              {% if field.is_readonly %}
+                <p>{{ field.contents }}</p>
+              {% else %}
+                {{ field.label_tag }}
+                {{ field.field }} 
+              {% endif %}
+              </div>
+              {% endfor %}
+        </div>
+      {% endfor %}
+    </fieldset>
+  {% endfor %}
+  {% if inline_admin_form.needs_explicit_pk_field %}
+    {{ inline_admin_form.pk_field.field }}
+  {% endif %}
+  {{ inline_admin_form.fk_field.field }}
+  </div>
+{% endfor %}
+</div>
+<script type="text/javascript">
+(function($) {
+  $("#{{ inline_admin_formset.formset.prefix }}-group .inline-related").stackedFormset({
+    prefix: '{{ inline_admin_formset.formset.prefix }}',
+    adminStaticPrefix: '{% static "admin/" %}',
+    deleteText: "{% trans "Remove" %}",
+    addText: "lägg till"
+  });
+})(django.jQuery);
+</script>
